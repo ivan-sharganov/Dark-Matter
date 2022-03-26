@@ -12,9 +12,11 @@
 		9DC04C7227EE39A0001BE43A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC04C7027EE39A0001BE43A /* Main.storyboard */; };
 		9DC04C7427EE39A1001BE43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC04C7327EE39A1001BE43A /* Assets.xcassets */; };
 		9DC04C7727EE39A1001BE43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC04C7527EE39A1001BE43A /* LaunchScreen.storyboard */; };
-		9DC04C7F27EED56B001BE43A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C7E27EED56B001BE43A /* DataManager.swift */; };
 		9DC04C8127EF1762001BE43A /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C8027EF1762001BE43A /* Presenter.swift */; };
 		9DC04C8327EF1C69001BE43A /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C8227EF1C69001BE43A /* Measurement.swift */; };
+		9DC04C8527EF5768001BE43A /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C8427EF5768001BE43A /* DataBase.swift */; };
+		9DC04C8B27EF6C44001BE43A /* MeasureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C8927EF6C44001BE43A /* MeasureTableViewCell.swift */; };
+		9DC04C8C27EF6C44001BE43A /* MeasureTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DC04C8A27EF6C44001BE43A /* MeasureTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +27,11 @@
 		9DC04C7327EE39A1001BE43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC04C7627EE39A1001BE43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC04C7827EE39A1001BE43A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DC04C7E27EED56B001BE43A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		9DC04C8027EF1762001BE43A /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		9DC04C8227EF1C69001BE43A /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		9DC04C8427EF5768001BE43A /* DataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
+		9DC04C8927EF6C44001BE43A /* MeasureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTableViewCell.swift; sourceTree = "<group>"; };
+		9DC04C8A27EF6C44001BE43A /* MeasureTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeasureTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +64,43 @@
 		9DC04C6927EE39A0001BE43A /* Dark Matter */ = {
 			isa = PBXGroup;
 			children = (
-				9DC04C8027EF1762001BE43A /* Presenter.swift */,
-				9DC04C6E27EE39A0001BE43A /* ViewController.swift */,
-				9DC04C8227EF1C69001BE43A /* Measurement.swift */,
-				9DC04C7E27EED56B001BE43A /* DataManager.swift */,
+				9DC04C8827EF6B80001BE43A /* Presenter */,
+				9DC04C8727EF6B78001BE43A /* View */,
+				9DC04C8627EF6B70001BE43A /* Model */,
 				9DC04C7027EE39A0001BE43A /* Main.storyboard */,
+				9DC04C8927EF6C44001BE43A /* MeasureTableViewCell.swift */,
+				9DC04C8A27EF6C44001BE43A /* MeasureTableViewCell.xib */,
 				9DC04C7327EE39A1001BE43A /* Assets.xcassets */,
 				9DC04C7527EE39A1001BE43A /* LaunchScreen.storyboard */,
 				9DC04C7827EE39A1001BE43A /* Info.plist */,
 				9DC04C6A27EE39A0001BE43A /* AppDelegate.swift */,
 			);
 			path = "Dark Matter";
+			sourceTree = "<group>";
+		};
+		9DC04C8627EF6B70001BE43A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DC04C8227EF1C69001BE43A /* Measurement.swift */,
+				9DC04C8427EF5768001BE43A /* DataBase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9DC04C8727EF6B78001BE43A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DC04C6E27EE39A0001BE43A /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DC04C8827EF6B80001BE43A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9DC04C8027EF1762001BE43A /* Presenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +163,7 @@
 			files = (
 				9DC04C7727EE39A1001BE43A /* LaunchScreen.storyboard in Resources */,
 				9DC04C7427EE39A1001BE43A /* Assets.xcassets in Resources */,
+				9DC04C8C27EF6C44001BE43A /* MeasureTableViewCell.xib in Resources */,
 				9DC04C7227EE39A0001BE43A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,8 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC04C8B27EF6C44001BE43A /* MeasureTableViewCell.swift in Sources */,
+				9DC04C8527EF5768001BE43A /* DataBase.swift in Sources */,
 				9DC04C6F27EE39A0001BE43A /* ViewController.swift in Sources */,
-				9DC04C7F27EED56B001BE43A /* DataManager.swift in Sources */,
 				9DC04C8327EF1C69001BE43A /* Measurement.swift in Sources */,
 				9DC04C8127EF1762001BE43A /* Presenter.swift in Sources */,
 				9DC04C6B27EE39A0001BE43A /* AppDelegate.swift in Sources */,
@@ -225,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -280,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -303,9 +335,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -333,9 +366,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
