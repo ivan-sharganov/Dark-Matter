@@ -13,6 +13,8 @@
 		9DC04C7427EE39A1001BE43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC04C7327EE39A1001BE43A /* Assets.xcassets */; };
 		9DC04C7727EE39A1001BE43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC04C7527EE39A1001BE43A /* LaunchScreen.storyboard */; };
 		9DC04C7F27EED56B001BE43A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C7E27EED56B001BE43A /* DataManager.swift */; };
+		9DC04C8127EF1762001BE43A /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C8027EF1762001BE43A /* Presenter.swift */; };
+		9DC04C8327EF1C69001BE43A /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC04C8227EF1C69001BE43A /* Measurement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9DC04C7627EE39A1001BE43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC04C7827EE39A1001BE43A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DC04C7E27EED56B001BE43A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9DC04C8027EF1762001BE43A /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		9DC04C8227EF1C69001BE43A /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +60,15 @@
 		9DC04C6927EE39A0001BE43A /* Dark Matter */ = {
 			isa = PBXGroup;
 			children = (
-				9DC04C6A27EE39A0001BE43A /* AppDelegate.swift */,
+				9DC04C8027EF1762001BE43A /* Presenter.swift */,
 				9DC04C6E27EE39A0001BE43A /* ViewController.swift */,
+				9DC04C8227EF1C69001BE43A /* Measurement.swift */,
 				9DC04C7E27EED56B001BE43A /* DataManager.swift */,
 				9DC04C7027EE39A0001BE43A /* Main.storyboard */,
 				9DC04C7327EE39A1001BE43A /* Assets.xcassets */,
 				9DC04C7527EE39A1001BE43A /* LaunchScreen.storyboard */,
 				9DC04C7827EE39A1001BE43A /* Info.plist */,
+				9DC04C6A27EE39A0001BE43A /* AppDelegate.swift */,
 			);
 			path = "Dark Matter";
 			sourceTree = "<group>";
@@ -140,6 +146,8 @@
 			files = (
 				9DC04C6F27EE39A0001BE43A /* ViewController.swift in Sources */,
 				9DC04C7F27EED56B001BE43A /* DataManager.swift in Sources */,
+				9DC04C8327EF1C69001BE43A /* Measurement.swift in Sources */,
+				9DC04C8127EF1762001BE43A /* Presenter.swift in Sources */,
 				9DC04C6B27EE39A0001BE43A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

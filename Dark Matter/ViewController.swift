@@ -7,21 +7,60 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UserPresenterDelegate {
     
-    let dataManager = DataManager()
     
     // TODO: обьявление даты надо в другое место
+    //✅
     var data = Array(0...C.maximumInData)
+    //✅
+    
+    private let presenter = UserPresenter()
+    
+    private var measurments = [Measurement]()
+    
+    
+    //MARK: - Presenter Delegate
+    
+    
+    func presentMeasurments(measurments: [Measurement], direction: Direction) {
+        
+        // сделай новые данные
+        self.measurments = measurments
+        
+        // и обнови таблицу
+        self.updateUI(direction)
+        
+    }
+    func presentActivityIndicator(in direction: Direction) {
+        
+        switch direction {
+        case .up:
+            self.tableView.tableHeaderView = createSpinnerView()
+        case .down:
+            self.tableView.tableFooterView = createSpinnerView()
+        }
+    }
+    
     
     //MARK: - ViewController LyfeCycle
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+//        for i in 1...100 {
+//            print("Measurement(measurment: \"\(i) V, no matter\" , index: \(i), ")
+//        }
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
+        presenter.setMyViewDelegate(delegate: self)
+       
+        //🅰️✅
+        // этот метод мы вызываем не в начале а при скроллах до краев экрана
+//        presenter.getMeasurement(from: 0)
+        measurments = presenter.myData
+        //🅰️✅
     }
     
     //MARK: - Private Methods
@@ -79,13 +118,14 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+//        data.count
+        measurments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(data[indexPath.row])"
+        cell.textLabel?.text = "\(measurments[indexPath.row].measurment)"
         return cell
         
     }
@@ -94,38 +134,48 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollVi
         let position = scrollView.contentOffset.y
         
         if position > ( (tableView.contentSize.height - 100) - (scrollView.frame.size.height)) {
-            
-            guard !dataManager.isPaginating else { return }
-            dataManager.updateData(oldData: data, pagination: true, in: .down) { [weak self] result in
-                switch result {
-                case .success(let updatedData):
-                    
-                    self?.data = updatedData
-                    self?.updateUI(.down)
-                    
-                case .failure(_):
-                    break
-                }
-            }
-            self.tableView.tableFooterView = createSpinnerView()
+            presenter.scrolledToEnd(direction: .down)
         }
-        
         if position < 0 {
-            
-            guard !dataManager.isPaginating else { return }
-            dataManager.updateData(oldData: data, pagination: true, in: .up) { [weak self] result in
-                switch result {
-                case .success(let updatedData):
-                    
-                    self?.data = updatedData
-                    self?.updateUI(.up)
-                    
-                case .failure(_):
-                    break
-                }
-            }
-            self.tableView.tableHeaderView = createSpinnerView()
+            presenter.scrolledToEnd(direction: .up)
         }
+        // lальше все в презентере
+//        print("scroll did ")
+//        let position = scrollView.contentOffset.y
+        
+//        if position > ( (tableView.contentSize.height - 100) - (scrollView.frame.size.height)) {
+//
+//            guard !presenter.isPaginating else { return }
+//            presenter.updateData(oldData: data, pagination: true, in: .down) { [weak self] result in
+//                switch result {
+//                case .success(let updatedData):
+//
+//                    self?.data = updatedData
+//                    self?.updateUI(.down)
+//
+//                case .failure(_):
+//                    break
+//                }
+//            }
+//            self.tableView.tableFooterView = createSpinnerView()
+//        }
+//
+//        if position < 0 {
+//
+//            guard !presenter.isPaginating else { return }
+//            presenter.updateData(oldData: data, pagination: true, in: .up) { [weak self] result in
+//                switch result {
+//                case .success(let updatedData):
+//
+//                    self?.data = updatedData
+//                    self?.updateUI(.up)
+//
+//                case .failure(_):
+//                    break
+//                }
+//            }
+//            self.tableView.tableHeaderView = createSpinnerView()
+//        }
     }
 }
 
