@@ -1,7 +1,9 @@
 # Dark-Matter
 
-Приложение работает по следующей модели: существует какая-то база данных, в которой хранятся триллионы измерений датичка.
+Application demonstrating infinite scroll in a tableView
 
-Устройство показывает измерения так: оно изначально запрашивает у базы данных определенное количество измерений, при скролле до конца измерений устройство докачивает с базы данных еще немного измерений, но при этом удаляет столько же тех, которые были в начале списка. 
+The application operates on the following model: there is a database that stores trillions of date measurements.
 
-Таким образом, в устройстве хранится единовременно лишь строго определенное количество измерений, что помогает обезопасить устройство от переполнения памяти.
+The device displays measurements as follows: initially, it requests a certain amount of measurements from the database, and as the user scrolls to the end of the measurements, the device fetches a bit more from the database. At the same time, it removes an equal amount of measurements from the beginning of the list.
+
+Thus, the device retains only a strictly defined number of measurements at any given time, which helps prevent memory overflow.
